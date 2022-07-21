@@ -10,7 +10,7 @@ const getProductsData = () => (dispatch) => {
 // Sorting
 
 const  getSortData = (res) => (dispatch) => {
-    dispatch({type: types.GET_PRODUCTS_SUCCESS, payload: res})
+    dispatch({type: types.GET_PRODUCTS_SUCCESS, payload: res.data})
 };
 
 export {getProductsData, getSortData};
