@@ -1,7 +1,64 @@
-import React from 'react'
-import { Avatar, Box,Button,Center,Checkbox,Flex,FormControl,FormLabel,Heading,HStack,Image, Input, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Select, Text, WrapItem } from '@chakra-ui/react'
+import React, { useReducer } from 'react'
+import { Avatar, Box,Button,Center,Checkbox,Flex,FormControl,FormLabel,Heading,HStack,Image, Input, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Select, Stack, Text, WrapItem } from '@chakra-ui/react'
 import {ChevronRightIcon} from "@chakra-ui/icons"
+
+function reducer(state,action){
+  switch(action.type){
+  case'name':{
+    return{
+      ...state,
+      name:action.payload,
+    }
+  }
+  case'state':{
+    return{
+      ...state,
+      state:action.payload,
+    }
+  }
+  case'pincode':{
+    return{
+      ...state,
+      pincode:action.payload,
+    }
+  } case'city':{
+    return{
+      ...state,
+      city:action.payload,
+    }
+  }
+  case'company':{
+    return{
+      ...state,
+      company:action.payload,
+    }
+  }
+  case'address ':{
+    return{
+      ...state,
+      address:action.payload,
+    }
+  }
+  default:{return state}
+}
+}
+const initstate={
+   name:"",
+   company:"",
+   address:"",
+   state:"",
+   pincode:"",
+  city:"",
+  country:"",
+}
+
+
+
 const Checkout = () => {
+  const[state,Setstate]=useReducer(reducer,initstate)
+
+
+
   return (
     <Box border={"1px solid black"}>
         <Box margin="10vh" w="50%" border={"1px solid green"} padding="5px">
@@ -32,9 +89,11 @@ const Checkout = () => {
                 </Flex>
                 <Checkbox>Email Me with new and Offers</Checkbox>
                </Box>
-              <Box  marginTop={"10px"} border={"1px solid black"} h="-moz-max-content" w="80%" >
+              <Box  marginTop={"10px"} border={"1px solid black"} h="-moz-max-content" w="100%" gap={"20px"} >
+                <Text size={"25px"}>Shipping Address</Text>
+                <Stack marginTop={"20px"} spacing="15px">
                 <FormControl>
-                   <Select placeholder='Country/Region' variant='filled'>
+                   <Select placeholder='Country/Region' value={state.country} onChange={(e)=>Setstate({type:"country",payload:e.target.value})} variant='filled'>
                       <option value='USA'>United States</option>
                    </Select>
                 </FormControl>
@@ -92,6 +151,7 @@ const Checkout = () => {
                   <Input placeholder="Phone" type="number"/> 
                  </FormControl>
               </Box>
+              </Stack>
               </Box>
      
 
@@ -101,3 +161,6 @@ const Checkout = () => {
 }
 
 export default Checkout
+
+
+
