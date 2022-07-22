@@ -1,28 +1,30 @@
-import * as types from "./action.type.js";
-import { saveData, loadData } from "../../utils/LocalStorage";
+import { getLocalData, saveLocalData } from "../../utils/localStorage";
+import * as types from "./actionTypes";
 
-const inialState = {
-  isAuth: loadData("isAuth") || false,
-  token: loadData("token") || "",
+const initialState = {
+  isAuth: getLocalData("token") ? true : false,
+  token: getLocalData("token") || "",
   isLoading: false,
   isError: false,
-  isRegister: false,
-  userDetails: loadData("dataUser") || [],
 };
-export const reducer = (state = inialState, { type, payload }) => {
+
+const reducer = (state = initialState, action) => {
+  const { type, payload } = action;
   switch (type) {
-    case types.GET_USER_REQUEST:
+
+
+    case types.REGISTER_REQUEST:
       return {
         ...state,
         isLoading: true,
       };
-    case types.GET_USER_SUCCESS:
+    case types.REGISTER_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        isRegister: true,
       };
-    case types.GET_USER_FAILURE:
+
+    case types.REGISTER_FAILURE:
       return {
         ...state,
         isLoading: false,
@@ -35,54 +37,27 @@ export const reducer = (state = inialState, { type, payload }) => {
         isLoading: true,
       };
     case types.LOGIN_SUCCESS:
-      saveData("token", payload);
-      saveData("isAuth", true);
+      saveLocalData("token", payload )
       return {
         ...state,
+        token: payload,
         isLoading: false,
         isAuth: true,
-        token: payload,
-      };
-    case types.LOGIN_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        isError: true,
       };
 
-    case types.LOGOUT_SUCCESS:
-      saveData("token", "");
-      saveData("isAuth", false);
+    case types.LOGIN_FAILURE:
       return {
         ...state,
         isLoading: false,
         isAuth: false,
         token: "",
-      };
-
-    case types.GET_USER_DETAILS_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-      };
-
-    case types.GET_USER_DETAILS_SUCCESS:
-      saveData("dataUser", payload);
-  
-      return {
-        ...state,
-        isLoading: false,
-        userDetails: payload,
-      };
-    case types.GET_USER_DETAILS_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        userDetails: "",
         isError: true,
       };
+
+      
 
     default:
       return state;
   }
 };
+export { reducer };
