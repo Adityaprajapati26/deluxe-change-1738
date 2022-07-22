@@ -1,19 +1,13 @@
 import React, { useReducer } from 'react'
-import { Avatar, Box,Button,Center,Checkbox,Flex,FormControl,FormLabel,Heading,HStack,Image, Input, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Select, Stack, Text, WrapItem } from '@chakra-ui/react'
+import { Avatar, Box,Button,Center,Checkbox,Divider,Flex,FormControl,FormLabel,Heading,HStack,Image, Input, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Select, Stack, Text, WrapItem } from '@chakra-ui/react'
 import {ChevronRightIcon} from "@chakra-ui/icons"
-
+import {useNavigate} from "react-router-dom"
 function reducer(state,action){
   switch(action.type){
   case'name':{
     return{
       ...state,
       name:action.payload,
-    }
-  }
-  case'last':{
-    return{
-      ...state,
-      last:action.payload,
     }
   }
   case'state':{
@@ -50,7 +44,6 @@ function reducer(state,action){
 }
 const initstate={
    name:"",
-   last:"",
    company:"",
    address:"",
    state:"",
@@ -63,11 +56,15 @@ const initstate={
 
 const Checkout = () => {
   const[state,Setstate]=useReducer(reducer,initstate)
-
+  // const navigate=useNavigate()
+  // const data=useSelector()
 
 
   return (
-    <Box border={"1px solid black"}>
+    <Box border={"1px solid black"} display="flex">
+        
+      
+          
         <Box margin="10vh" w="50%" border={"1px solid green"} padding="5px">
            <Image  h="80px"  src="https://cdn.shopify.com/s/files/1/0627/7388/7215/files/04122019_logo2.png?v=1645644264" />
            <Flex display="flex">
@@ -96,44 +93,44 @@ const Checkout = () => {
                 </Flex>
                 <Checkbox>Email Me with new and Offers</Checkbox>
                </Box>
-              <Box  marginTop={"10px"} border={"1px solid black"} h="-moz-max-content" w="100%" gap={"20px"} >
+              <Box  marginTop={"10px"} border={"1px solid black"} h="500px" w="100%" gap={"30px"} >
                 <Text size={"25px"}>Shipping Address</Text>
                 <Stack marginTop={"20px"} spacing="15px">
-                <FormControl>
-                   <Select placeholder='Country/Region' value={state.country} onChange={(e)=>Setstate({type:"country",payload:e.target.value})} variant='filled'>
+                <FormControl  >
+                   <Select h={"50px"} placeholder='Country/Region' value={state.country} onChange={(e)=>Setstate({type:"country",payload:e.target.value})} variant='filled'>
                       <option value='USA'>United States</option>
                    </Select>
                 </FormControl>
                 <HStack>
               <Box>
                 <FormControl id="firstName" isRequired>
-                  <Input placeholder="Firstname" value={state.name} onChange={(e)=>Setstate({type:"name",payload:e.target.value})} type="text" />
+                  <Input h={"50px"} placeholder="Firstname" type="text" />
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName" isRequired>
-                  <Input placeholder='Lastname' value={state.last} onChange={(e)=>Setstate({type:"last",payload:e.target.value})} type="text" />
+                  <Input  h={"50px"}placeholder='Lastname' type="text" />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl>
-                <Input placeholder="compony (optional)" value={state.compony} onChange={(e)=>Setstate({type:"compony",payload:e.target.value})} type="text"/>
+                <Input h={"50px"} placeholder="compony (optional)" type="text"/>
             </FormControl>
             <FormControl>
-                <Input placeholder="Adress" value={state.address} onChange={(e)=>Setstate({type:"address",payload:e.target.value})} type="text"/>
+                <Input h={"50px"}placeholder="Adress" type="text"/>
             </FormControl>
             <FormControl>
-                <Input placeholder="Appartment,suite,etc(optional)" type="text"/>
+                <Input h={"50px"} placeholder="Appartment,suite,etc(optional)" type="text"/>
             </FormControl>
             <HStack>
               <Box>
                 <FormControl id="City" isRequired>
-                  <Input placeholder="City" type="text" />
+                  <Input  h={"50px"}placeholder="City" type="text" />
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="State"   isRequired>
-                <Select placeholder='state' value={state.state} onChange={(e)=>Setstate({type:"state",payload:e.target.value})} variant='filled'>
+                <FormControl id="State" isRequired>
+                <Select placeholder='state' variant='filled' h={"50px"}>
                       <option disabled>state</option>
                       <option  value="AL">Alabama</option>
                       <option value="AK">Alaska</option>
@@ -148,21 +145,46 @@ const Checkout = () => {
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="Zip Code" isRequired>
-                  <Input placeholder='Zip Code' value={state.pincode} onChange={(e)=>Setstate({type:"pincode",payload:e.target.value})}  type="number" />
+                <FormControl h={"50px"} id="Zip Code" isRequired>
+                  <Input placeholder='Zip Code' type="number" />
                 </FormControl>
               </Box>
             </HStack>
             <Box>
                 <FormControl id="Phone" isRequired>
-                  <Input placeholder="Phone"  value={state.phone} onChange={(e)=>Setstate({type:"phone",payload:e.target.value})}type="number"/> 
+                  <Input h={"50px"} placeholder="Phone" type="number"/> 
                  </FormControl>
               </Box>
               </Stack>
               </Box>
-     
-
+             <Box display={"flex"} justifyContent="space-between" margin="15px">
+              <Text>Return to Shoping</Text>
+              <Button bg="black" color={"white"}>Pay</Button>
+             </Box>
+           
         </Box>
+             
+        
+
+             <Box marginTop={"10vh"} width="50%" marginRight={"15px"}  border={"1px solid green"}>
+           
+              {/* Map the Data  with useSelector*/}
+              {/* <Image src="" border="1px solid red" w="150px" h="150px"/> */}
+              <Box>
+              <Box border="1px solid red" w="100%" display={"flex"} justifyContent="space-around" h="200px">
+              <Image src="" border="1px solid red" w="150px" />
+              <Box border="1px solid red" marginLeft={"15px"} w="60%" textAlign={"center"} >
+                <Text>Ring</Text>
+                <Text>$16</Text>
+
+                
+              </Box>
+              </Box>
+              </Box>
+            
+
+              
+             </Box>
     </Box>
   )
 }
