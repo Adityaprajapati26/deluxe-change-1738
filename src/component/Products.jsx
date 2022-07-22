@@ -49,9 +49,9 @@ const Products = () => {
                 {
                     filter.map((product) => {
                         return (
-                            <div className={modu.container}>
+                            <div classNameName={modu.container}>
                                 <Container style={{ width: "18rem", margin: "20px" }} key={product.id} >
-                                    <Box boxSize='sm'>
+                                    <Box boxSize='sm' >
                                         <Image style={{ height: "300px" }} src={product.image} alt={product.title} />
                                     </Box>
                                     <Box>
@@ -60,7 +60,7 @@ const Products = () => {
                                     <Box>
                                         <p >{product.price}</p>
                                     </Box>
-                                    <Button>
+                                    <Button colorScheme='teal'>
                                         <Link to={`/products/${product.id}`}>Add to Cart</Link>
                                     </Button>
                                 </Container>

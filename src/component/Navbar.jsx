@@ -8,7 +8,7 @@ const Navbar = () => {
     // }
     const state = useSelector((state) => state.handleCart);
   return (
-    <div style={{ display: 'flex' ,gap: "80px"}}>
+    <div style={{ display: 'flex' ,gap: "80px" , color: "black"}}>
         <Link to="/products" style={{fontSize: "20px"}}>Products</Link>
         <Link style={{borer : "2px solid black", fontSize: "20px"}}
         // onClick={handleNavigate}
