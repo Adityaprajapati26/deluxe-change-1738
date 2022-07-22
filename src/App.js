@@ -22,15 +22,14 @@ function App() {
 			<Products />
 			<br />
 			<br />
-			{/* <Categories /> */}
-			{/* <Feed/> */}
+			
       <hr />
       <br />
       <br />
 			<Footer />
 		</>
 	);
-
+};
 
 
 export default App;

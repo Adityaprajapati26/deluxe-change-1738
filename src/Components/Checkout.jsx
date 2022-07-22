@@ -10,6 +10,12 @@ function reducer(state,action){
       name:action.payload,
     }
   }
+  case'last':{
+    return{
+      ...state,
+      last:action.payload,
+    }
+  }
   case'state':{
     return{
       ...state,
@@ -44,6 +50,7 @@ function reducer(state,action){
 }
 const initstate={
    name:"",
+   last:"",
    company:"",
    address:"",
    state:"",
@@ -100,20 +107,20 @@ const Checkout = () => {
                 <HStack>
               <Box>
                 <FormControl id="firstName" isRequired>
-                  <Input placeholder="Firstname" type="text" />
+                  <Input placeholder="Firstname" value={state.name} onChange={(e)=>Setstate({type:"name",payload:e.target.value})} type="text" />
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName" isRequired>
-                  <Input placeholder='Lastname' type="text" />
+                  <Input placeholder='Lastname' value={state.last} onChange={(e)=>Setstate({type:"last",payload:e.target.value})} type="text" />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl>
-                <Input placeholder="compony (optional)" type="text"/>
+                <Input placeholder="compony (optional)" value={state.compony} onChange={(e)=>Setstate({type:"compony",payload:e.target.value})} type="text"/>
             </FormControl>
             <FormControl>
-                <Input placeholder="Adress" type="text"/>
+                <Input placeholder="Adress" value={state.address} onChange={(e)=>Setstate({type:"address",payload:e.target.value})} type="text"/>
             </FormControl>
             <FormControl>
                 <Input placeholder="Appartment,suite,etc(optional)" type="text"/>
@@ -125,8 +132,8 @@ const Checkout = () => {
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="State" isRequired>
-                <Select placeholder='state' variant='filled'>
+                <FormControl id="State"   isRequired>
+                <Select placeholder='state' value={state.state} onChange={(e)=>Setstate({type:"state",payload:e.target.value})} variant='filled'>
                       <option disabled>state</option>
                       <option  value="AL">Alabama</option>
                       <option value="AK">Alaska</option>
@@ -142,13 +149,13 @@ const Checkout = () => {
               </Box>
               <Box>
                 <FormControl id="Zip Code" isRequired>
-                  <Input placeholder='Zip Code' type="number" />
+                  <Input placeholder='Zip Code' value={state.pincode} onChange={(e)=>Setstate({type:"pincode",payload:e.target.value})}  type="number" />
                 </FormControl>
               </Box>
             </HStack>
             <Box>
                 <FormControl id="Phone" isRequired>
-                  <Input placeholder="Phone" type="number"/> 
+                  <Input placeholder="Phone"  value={state.phone} onChange={(e)=>Setstate({type:"phone",payload:e.target.value})}type="number"/> 
                  </FormControl>
               </Box>
               </Stack>
