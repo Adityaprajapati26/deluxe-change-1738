@@ -1,22 +1,37 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import Cart from './component/Cart';
-import Navbar from './component/Navbar';
-import Product from './component/Product';
-import Products from './component/Products';
+import logo from "./logo.svg";
+import "./App.css";
+
+import Announcement from "./Components/Announcement";
+import Navbar from "./Components/Navbar";
+import Categories from "./Components/Categories";
+import HomePage from "./Components/HomePage";
+import Products from "./Components/Product/Products";
+import Shop from "./Components/Feed";
+import Feed from "./Components/Feed";
+
+import Footer from "./Components/Footer/Footer";
 
 
 function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path='/products' element={<Products/>} />
-        <Route path='/products/:id' element={<Product />} />
-        <Route path='/cart' element={<Cart />} />
-      </Routes>
-    </div>
-  );
-}
+	return (
+		<>
+			<Announcement />
+			<hr />
+			<Navbar />
+			<HomePage />
+			<Products />
+			<br />
+			<br />
+			{/* <Categories /> */}
+			{/* <Feed/> */}
+      <hr />
+      <br />
+      <br />
+			<Footer />
+		</>
+	);
+
+  }
 
 export default App;
+
