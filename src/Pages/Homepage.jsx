@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Image, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,10 +23,10 @@ const Homepage = () => {
 
   useEffect(() => {
     dispatch(getProductsData());
-  }, []);
+  }, [dispatch]);
   console.log(products, "products");
   return (
-    <Box>
+    <Box border="1px solid red" width="100%" marginLeft='0'>
       <Flex>
         <Text fontWeight="700" paddingRight="1rem">
           Sort by Price
@@ -39,13 +39,23 @@ const Homepage = () => {
         </RadioGroup>
       </Flex>
 
+
+
+      <Grid templateColumns='repeat(4, 1fr)' gap={4}>
+
       {products.map((items,ind) => (
-        <Box key={ind}>
+        <Box boxSize="l" key={ind}>
         <Image src={items.image}/>
         <Text>{items.title}</Text>
-        <Text>{items.Price}</Text>
+        <Text>{"$"+items.Price+".00"}</Text>
+
         </Box>
       ))}
+  
+        </Grid>
+
+
+    
 
     </Box>
   );
