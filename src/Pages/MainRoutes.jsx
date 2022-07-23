@@ -5,7 +5,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import ReqAuth from "../ReqAuth/ReqAuth";
 import Homepage from "./Homepage";
-import Product from "../component/Product"
+import Product from "../Components/Product"
 const MainRoutes = () => {
   return (
     <Routes>
