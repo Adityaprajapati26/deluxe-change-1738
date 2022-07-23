@@ -6,10 +6,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdPersonOutline } from "react-icons/md";
 import { CgShoppingBag } from "react-icons/cg";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 	const [showMediaIcons, setShowMediaIcons] = useState(false);
+	const navigate=useNavigate()
 	return (
 		<>
 			<nav className="navbar">
@@ -23,7 +24,8 @@ const Navbar = () => {
 				{/* 1st logo part  */}
 				<div className="logo">
 					<h2>
-						<img
+						<img 
+						onClick={()=>navigate("/")}
 							src="https://cdn.shopify.com/s/files/1/0627/7388/7215/files/04122019_logo2_90x.png?v=1645644264"
 							alt=""
 						/>
@@ -31,7 +33,8 @@ const Navbar = () => {
 				</div>
 
 				{/* 2nd menu part  */}
-				<div
+				<div 
+				id="Second"
 					className={
 						showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
 					}
@@ -76,7 +79,7 @@ const Navbar = () => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/login">
+							<NavLink to="/signup">
 								<MdPersonOutline className="person" />
 							</NavLink>
 						</li>
