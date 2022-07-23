@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { BsSearch} from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import { MdPersonOutline } from "react-icons/md";
@@ -61,6 +61,9 @@ const Navbar = () => {
 						<li>
 							<NavLink to="/ShopSocial">Shop Social</NavLink>
 						</li>
+						<li>
+							<NavLink to="/checkout">checkout</NavLink>
+						</li>
 					</ul>
 				</div>
 
@@ -73,7 +76,7 @@ const Navbar = () => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/">
+							<NavLink to="/login">
 								<MdPersonOutline className="person" />
 							</NavLink>
 						</li>
