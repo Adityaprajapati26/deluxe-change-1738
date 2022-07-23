@@ -1,4 +1,7 @@
-
+.main{
+    margin: 0px;
+    padding: 0px;
+}
 .grid_block{
     margin: 30px;
     color: black;
@@ -8,7 +11,7 @@
     font-size: 30px;
 }
 .grid_right{
-    margin: 0px 300px;
+    margin: 0px 0;
     font-size: 18px;
 }
 .grid_cart_left{
@@ -21,16 +24,4 @@
 }
 .button{
     color: beige;
-}
-.button1{
-background-color: red;
-}
-.button2{
-    background-color: blue;
-}
-.button3{
-    background-color: yellow;
-}
-.button4{
-    background-color: black;
 }
