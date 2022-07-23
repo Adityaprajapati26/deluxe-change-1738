@@ -22,8 +22,7 @@ function App() {
 			<Products />
 			<br />
 			<br />
-			{/* <Categories /> */}
-			{/* <Feed/> */}
+			
       <hr />
       <br />
       <br />
@@ -31,7 +30,6 @@ function App() {
 		</>
 	);
 
-  }
 
 export default App;
 
