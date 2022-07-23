@@ -72,7 +72,7 @@ const Cart = () => {
                         <Button style={{backgroundColor:"yellow"}} className="button button3" size='md' >
                             PayPal
                         </Button>
-                        <Button style={{}} className="button button4" size='md' >
+                        <Button style={{backgroundColor:"black"}} className="button button4" size='md' >
                             GPay
                         </Button></GridItem>
                 </Grid>
@@ -92,7 +92,7 @@ const Cart = () => {
     };
 
     return (
-        <>
+        <div className="main">
             {state.length === 0 && emptyCart()}
             <div>
                 <Grid className="grid_block" templateColumns='repeat(2, 1fr)' gap={6}>
@@ -110,7 +110,7 @@ const Cart = () => {
             </div>
             {state.length !== 0 && state.map(cartItems)}
             {lastPortion()}
-        </>
+        </div>
     )
 }
 
