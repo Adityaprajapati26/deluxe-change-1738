@@ -19,3 +19,18 @@
     width: 300px;
     height: 100px;
 }
+.button{
+    color: beige;
+}
+.button1{
+background-color: red;
+}
+.button2{
+    background-color: blue;
+}
+.button3{
+    background-color: yellow;
+}
+.button4{
+    background-color: black;
+}

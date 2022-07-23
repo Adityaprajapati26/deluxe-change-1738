@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { Button, ButtonGroup, Grid, GridItem, Flex, Box, Spacer } from '@chakra-ui/react';
+import { Button, ButtonGroup, Grid, GridItem, Flex, Box, Spacer, Link } from '@chakra-ui/react';
 import { addCart, delCart } from '../redux/action';
 import "./Cart.css";
 
@@ -16,9 +16,12 @@ const Cart = () => {
         dispatch(delCart(item));
     }
 
+    var total = 0;
     const cartItems = (cartItem) => {
+        total = total + cartItem.price * cartItem.qty;
 
         return (
+
             <div>
                 <div>
                     <Grid className="grid_block" templateColumns="2fr 1fr 1fr" gap={6}>
@@ -42,7 +45,7 @@ const Cart = () => {
                             <h1>{cartItem.qty}</h1>
                             <Button colorScheme='teal' size='md' onClick={() => handlePlusButton(cartItem)}>+</Button>
                         </ButtonGroup></GridItem>
-                        <GridItem w='100%' h='10' className='grid_cart_right' ><p>{cartItem.qty} * ${cartItem.price} = ${cartItem.qty * cartItem.price}</p></GridItem>
+                        <GridItem w='100%' h='10' className='grid_cart_right' ><p>{cartItem.qty} * ${cartItem.price} = ${(cartItem.qty * cartItem.price).toFixed(2)}</p></GridItem>
 
                     </Grid>
                 </div>
@@ -53,24 +56,24 @@ const Cart = () => {
     const lastPortion = () => {
         return (
             <>
-            <div style={{ border: "1px solid black", width: "100%" }}></div>
+                <div style={{ border: "1px solid black", width: "100%" }}></div>
                 <Grid templateColumns='2fr 1fr' m={6}>
                     <GridItem></GridItem>
                     <GridItem>
-                <div>SubTotal ${120}</div>
-                <p>or 4 interest-free payments of $31.25 with</p>
-                <p>Taxes and shipping calculated at checkout</p>
-                    <Button className="button" colorScheme='teal' size='md' >
-                        Add to Cart
-                    </Button>
-                        <Button className="button" colorScheme='teal' size='md' >
-                            Add to Cart
+                        <div>SubTotal ${total.toFixed(2)}</div>
+                        <p>or 4 interest-free payments of $31.25 with</p>
+                        <p>Taxes and shipping calculated at checkout</p>
+                        <Button style={{backgroundColor:"black"}} className="button button1" size='md' >
+                            Check out
                         </Button>
-                        <Button className="button" colorScheme='teal' size='md' >
-                            Add to Cart
+                        <Button style={{backgroundColor:"blue"}} className="button button2" size='md' >
+                            shoppay
                         </Button>
-                        <Button className="button" colorScheme='teal' size='md' >
-                            Add to Cart
+                        <Button style={{backgroundColor:"yellow"}} className="button button3" size='md' >
+                            PayPal
+                        </Button>
+                        <Button style={{}} className="button button4" size='md' >
+                            GPay
                         </Button></GridItem>
                 </Grid>
             </>
@@ -79,9 +82,12 @@ const Cart = () => {
 
     const emptyCart = () => {
         return (
-            <p style={{ color: "white" }}>
-                Cart is Empty Now !!!
-            </p>
+            <div style={{textAlign: "center", marginTop: "80px"}}>
+                <p style={{ color: "black" , marginBottom: "30px" }}>
+                    Your cart is empty
+                </p>
+                <Button style={{backgroundColor: "black" ,color: "white"}}><Link to="/products">Continue Shopping</Link></Button>
+            </div>
         )
     };
 
