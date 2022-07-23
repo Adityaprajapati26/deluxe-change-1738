@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Button, ButtonGroup, Grid, GridItem, Flex, Box, Spacer } from '@chakra-ui/react';
-import { addCart, delCart } from '../redux/action';
+import { addCart, delCart } from '../Redux/CartReduce';
 import "./Cart.css";
 
 const Cart = () => {

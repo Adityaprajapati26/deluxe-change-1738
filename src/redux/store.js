@@ -7,9 +7,10 @@ import {
 import thunk from "redux-thunk";
 // import { reducer as AppReducer } from "./AppReducer/reducer.js";
 import { reducer as AuthReducer } from "./AuthReducer/reducer.js";
+import {handleCart} from "./CartReduce/handleCart"
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // const rootReducer = combineReducers({ AppReducer, AuthReducer });
-const rootReducer = combineReducers({  AuthReducer });
+const rootReducer = combineReducers({  AuthReducer, handleCart });
 export const store = legacy_createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
