@@ -1,4 +1,3 @@
-
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -11,6 +10,7 @@ import Shop from "./Components/Feed";
 import Feed from "./Components/Feed";
 
 import Footer from "./Components/Footer/Footer";
+
 
 function App() {
 	return (
@@ -29,7 +29,7 @@ function App() {
 			<Footer />
 		</>
 	);
-};
 
 
 export default App;
+

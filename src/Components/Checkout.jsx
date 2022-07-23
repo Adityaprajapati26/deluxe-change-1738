@@ -1,3 +1,4 @@
+
 import React, { useReducer } from 'react'
 import { Avatar, Box,Button,Center,Checkbox,Divider,Flex,FormControl,FormLabel,Heading,HStack,Image, Input, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Select, Stack, Text, WrapItem } from '@chakra-ui/react'
 import {ChevronRightIcon} from "@chakra-ui/icons"
@@ -190,6 +191,11 @@ const Checkout = () => {
 }
 
 export default Checkout
+
+
+
+
+
 
 
 
