@@ -15,3 +15,11 @@ export const delCart = (Product) => {
         payload: Product
     }
 }
+
+// For Delete All Item of Same Produxt
+export const delAllCart = (product) => {
+    return{
+        type: "DELALLITEM",
+        payload: product
+    }
+}

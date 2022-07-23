@@ -1,6 +1,8 @@
 
 
-const cart = [];
+
+   const cart = [];
+
 const handleCart = (state = cart, action) => {
     const Product = action.payload;
 
@@ -22,7 +24,7 @@ const handleCart = (state = cart, action) => {
                 ]
 
             }
-        case "DELiTEM":
+        case "DELITEM":
 
             const exist1 = state.find((x) => x.id === Product.id);
             if (exist1.qty === 1) {
@@ -32,7 +34,7 @@ const handleCart = (state = cart, action) => {
                 x.id === Product.id ? {...x, qty: x.qty -1} : x
                 );
             }
-
+            
         default:
             {
                 return state;
