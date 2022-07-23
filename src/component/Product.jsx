@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import Skeleton from 'react-loading-skeleton';
 import { addCart } from '../redux/action';
 import { Button, ButtonGroup, Box } from '@chakra-ui/react';
 import { Grid, GridItem } from '@chakra-ui/react';
@@ -21,7 +20,7 @@ const Product = () => {
     useEffect(() => {
         const getProducts = async () => {
             setLoading(true);
-            const response = await fetch(` http://localhost:8080/products/${id}`);
+            const response = await fetch(`https://fakestoreapi.com/products/${id}`);
             setProduct(await response.json());
             setLoading(false);
         }
@@ -29,22 +28,7 @@ const Product = () => {
     }, [id]);
     console.log(product);
 
-    const Loading = () => {
-        return (
-            <>
-                <div>
-                    <Skeleton height={400} />
-                </div>
-                <div>
-                    <Skeleton height={50} width={300} />
-                    <Skeleton height={75} />
-                    <Skeleton height={25} width={150} />
-                    <Skeleton height={50} />
-                    <Skeleton height={150} />
-                </div>
-            </>
-        )
-    }
+    
     const ShowProduct = () => {
         return (
             <>
@@ -107,7 +91,7 @@ const Product = () => {
         <div>
             <div >
                 <div >
-                    {loading ? <Loading /> : <ShowProduct />}
+                    {<ShowProduct />}
                 </div>
             </div>
         </div>

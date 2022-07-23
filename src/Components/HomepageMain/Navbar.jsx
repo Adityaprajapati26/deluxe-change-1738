@@ -34,10 +34,11 @@ const Navbar = () => {
 
 				{/* 2nd menu part  */}
 				<div 
-				id="Second"
+				id="second-navbar"
 					className={
 						showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
 					}
+					
 				>
 					<ul>
 						<li>
