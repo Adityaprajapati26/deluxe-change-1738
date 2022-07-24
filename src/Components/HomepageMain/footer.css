@@ -1,0 +1,25 @@
+.over img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 35px;
+}
+.copywrite {
+	color: grey;
+	text-align: center;
+
+	font-weight: 300;
+	font-size: 12px;
+	/* margin-top: 2%; */
+	margin-bottom: 4%;
+}
+h3 {
+	font-weight: 600;
+	font-size: 16px;
+}
+.li:hover {
+	transform-origin: left;
+	color: rgba(0, 0, 3, 1);
+	text-decoration: underline;
+	transition: 0.5s;
+}

@@ -67,6 +67,7 @@ const initialState = {
   email: "",
   password: "",
   username: "",
+  mobile: null,
   description: "",
 };
 
@@ -74,8 +75,9 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   // const [state, dispatch] = useReducer(reducer, initialState);
   const [state, setter] = useReducer(reducer, initialState);
-  // console.log("state--", state);
+  console.log("state--", state);
 
+  // console.log();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

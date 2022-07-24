@@ -1,0 +1,15 @@
+.feed {
+	column-count: 2;
+	padding: 0 2px;
+	border: 1px solid red;
+	justify-content: space-between;
+	width: 100%;
+}
+.feed .pics {
+	cursor: pointer;
+	margin-bottom: 12px;
+}
+.pics {
+	width: 200px;
+	height: 200px;
+}
