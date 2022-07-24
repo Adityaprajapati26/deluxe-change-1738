@@ -67,12 +67,38 @@ const initstate={
   city:"",
   country:"",
 }
-
+let data=[
+  {
+      "id":1,
+      "title":"Rays Of Light Hoops",
+      "Price":16,
+      "tag":"Earrings",
+      "image":"https://cdn.shopify.com/s/files/1/0627/7388/7215/products/011000098-2__43894_823x.jpg?v=1645115759",
+      "Count":1
+    },
+    {
+      "id":2,
+      "title":"Daisy Post Earrings",
+      "Price":16,
+      "tag":"Earrings",
+      "image":"https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101015-1_1100x.jpg?v=1646760637",
+      "Count":1
+    },
+    {
+      "id":3,
+      "title":"Maryland Crab Earrings",
+      "Price":15,
+      "tag":"Earrings",
+      "image":"https://cdn.shopify.com/s/files/1/0627/7388/7215/products/011300002-2__23761_823x.jpg?v=1645110224",
+      "Count":1
+    },
+ 
+]
 
 
 const Checkout = () => {
   const[state,Setstate]=useReducer(reducer,initstate)
-  // const navigate=useNavigate()
+  const navigate=useNavigate()
   // const data=useSelector()
   // const data=useSelector((state)=>state.handlecart)
 
@@ -84,16 +110,16 @@ const Checkout = () => {
       backdropBlur='2px'
     />
   )
-  const {  isOpen,onOpen,onClose} = useDisclosure()
+  const {  isOpen,onOpen} = useDisclosure()
   const [overlay, setOverlay] = React.useState(<OverlayTwo />)
-//   const onClose=()=>{
+  const onClose=()=>{
     
-//     setTimeout(()=>{
-//       navigate("/")
-//        },3000)
+    setTimeout(()=>{
+      navigate("/")
+       },3000)
       
     
-//  }
+ }
   
   return (
     <Box  display="flex">
@@ -214,15 +240,19 @@ const Checkout = () => {
               {/* Map the Data  with useSelector*/}
               {/* <Image src="" border="1px solid red" w="150px" h="150px"/> */}
               <Box>
-              <Box border="1px solid red" w="100%" display={"flex"} justifyContent="space-around" h="200px">
-              <Image src="" border="1px solid red" w="150px" />
-              <Box border="1px solid red" marginLeft={"15px"} w="60%" textAlign={"center"} >
-                <Text>Ring</Text>
-                <Text>$16</Text>
-
-                
-              </Box>
-              </Box>
+                {data.map((data)=>(
+                  <Box border ="1px solid black" marginTop="10px"w="100%" display={"flex"} justifyContent="space-around" h="200px">
+                    <Image src={data.image}  w="150px" />
+                    <Box  marginLeft={"15px"} fontSize="30px" w="60%" textAlign={"center"} >
+                      <Text>{data.title}</Text>
+                          <Text>{data.tag}</Text>
+                              <Text>${data.Price}</Text>
+              
+                              
+                      </Box>
+                  </Box>
+                ))}
+                 <Text fontSize={"35px"}>Total Price</Text><Text fontSize={"35px"}>$40</Text>
               </Box>
             
 

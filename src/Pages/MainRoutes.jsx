@@ -11,12 +11,13 @@ const MainRoutes = () => {
   return (
     <Routes>
      
-      <Route path="/" element={<Home/>} />
-      <Route path="/New" element={< Homepage/>} />
+      <Route path="/" element={<ReqAuth><Home/></ReqAuth>} />
+      <Route path="/New" element={ < Homepage/>} />
     {/* //   <Route path="/" element={<Cart/>} /> */}
-    <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/checkout" element={<ReqAuth><Checkout/></ReqAuth>} />
+    
+      <Route path="/checkout" element={<Checkout/>} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>} />
       <Route path="/Product/:id" element={<Product/>} />
        <Route path="/cart" element={<Cart/>} />
 
