@@ -65,9 +65,7 @@ const Navbar = () => {
 						<li>
 							<NavLink to="/ShopSocial">Shop Social</NavLink>
 						</li>
-						<li>
-							<NavLink to="/checkout">checkout</NavLink>
-						</li>
+					
 					</ul>
 				</div>
 

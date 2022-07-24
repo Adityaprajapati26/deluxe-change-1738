@@ -6,6 +6,7 @@ import Signup from "./Signup";
 import ReqAuth from "../ReqAuth/ReqAuth";
 import Homepage from "./Homepage";
 import Product from "../Components/Product"
+import Cart from "../component/Cart";
 const MainRoutes = () => {
   return (
     <Routes>
@@ -17,7 +18,7 @@ const MainRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/checkout" element={<ReqAuth><Checkout/></ReqAuth>} />
       <Route path="/Product/:id" element={<Product/>} />
-       {/* <Route path="/" element={< />} /> */}
+       <Route path="/cart" element={<Cart/>} />
 
 
     </Routes>

@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import { addCart } from '../Redux/reducer/action';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { addCart } from '../redux/action';
-import { Button, ButtonGroup, Box } from '@chakra-ui/react';
+
+import { Button, Box } from '@chakra-ui/react';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import "./Product.css";
+import axios from 'axios';
+
 
 const Product = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const [product, setProduct] = useState([]);
-     const addProduct = (product) => {
+     const addProduct = () => {
         dispatch(addCart(product));
     }
 
     useEffect(() => {
-        const getProducts = async () => {
-           
-           await fetch(`http://localhost:8080/products/${id}`)
-            .then((r)=>r.json())
-            .then((d)=>setProduct(d))
-            
-            
-        }
-        getProducts();
+        if(product.length===0||id)
+        {
+       axios.get(`http://localhost:8080/products/${id}`)
+       .then((res)=>setProduct(res.data))
+    }
+      
     }, [id]);
     console.log(product);
 
@@ -67,9 +67,9 @@ const Product = () => {
                         </Box>
 
 
-                        <Button className="button" colorScheme='teal' size='md' onClick={() => addProduct(product)}>
+                        <Link to="/cart"><Button className="button" colorScheme='teal' size='md' onClick={() => addProduct(product)}>
                             Add to Cart
-                        </Button>
+                        </Button></Link>
                         <br />
                         <Button className="button" colorScheme='teal' size='md' onClick={() => addProduct(product)}>
                             <i class="fa fa-heart-o" aria-hidden="true"></i>
