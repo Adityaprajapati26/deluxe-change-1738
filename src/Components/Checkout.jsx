@@ -116,7 +116,7 @@ const Checkout = () => {
     
     setTimeout(()=>{
       navigate("/")
-       },3000)
+       },2000)
       
     
  }
